@@ -1,0 +1,11 @@
+# File access configuration (scenario requirement)
+mounts:
+  # -- A list of volumes you want to add to the Falco pods.
+  volumes:
+    - name: k3s-containerd-socket
+      hostPath:
+        path: /run/k3s/containerd
+  # -- A list of volumes you want to add to the Falco pods.
+  volumeMounts:
+    - mountPath: /host/run/k3s/containerd
+      name: k3s-containerd-socket
