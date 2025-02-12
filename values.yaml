@@ -5,6 +5,7 @@ mounts:
     - name: k3s-containerd-socket
       hostPath:
         path: /run/k3s/containerd
+        type: Directory
   # -- A list of volumes you want to add to the Falco pods.
   volumeMounts:
     - mountPath: /host/run/k3s/containerd
