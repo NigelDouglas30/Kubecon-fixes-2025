@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysdig
+  labels:
+    app: sysdig
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sysdig-oss
+  template:
+    metadata:
+      labels:
+        app: sysdig-oss
+    spec:
+      containers:
+      - name: sysdig
+        image: issif/sysdig:latest
+        imagePullPolicy: "IfNotPresent"
+        command: ["sleep", "3560d"]
+        securityContext:
+          privileged: true
+      nodeSelector:
+        kubernetes.io/os: linux
